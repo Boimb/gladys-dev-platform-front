@@ -1,0 +1,15 @@
+{
+  "generics": {
+    "gladys": "Gladys",
+    "homeAssistant": "Home assistant",
+    "home": "Home",
+    "module": "Module",
+    "script": "Script",
+    "sentence": "Sentence",
+    "documentation": "Documentation"
+  },
+  "header": {
+    "forum": "Forum",
+    "connection": "Connection"
+  }
+}

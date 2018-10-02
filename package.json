@@ -29,6 +29,7 @@
   "dependencies": {
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
+    "preact-i18n": "^1.2.2",
     "preact-router": "^2.5.7"
   },
   "jest": {
