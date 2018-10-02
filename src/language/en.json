@@ -11,5 +11,10 @@
   "header": {
     "forum": "Forum",
     "connection": "Connection"
+  },
+  "login": {
+    "username": "Username",
+    "password": "Password",
+    "submit": "Connect"
   }
 }

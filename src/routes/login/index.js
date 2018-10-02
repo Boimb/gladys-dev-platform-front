@@ -1,16 +1,17 @@
-import { h } from 'preact';
-import style from './style';
-import { Text } from 'preact-i18n';
+import { h } from 'preact'
+import style from './style'
+import { withText } from 'preact-i18n'
+const language = ['login.username', 'login.password', 'login.submit']
 
-const Login = () => (
+const Login = withText(language)((props) => (
   <div class={style.form}>
     <form>
-      <input />
-      <input />
-      <button></button>
+      <input placeholder={props.username}/>
+      <input placeholder={props.password}/>
+      <button>{props.submit}</button>
     </form>
   </div>
+));
 
-);
 
-export default Login;
+export default Login
