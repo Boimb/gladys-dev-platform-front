@@ -1,4 +1,3 @@
-import { h, Component } from 'preact'
 import Login from '../../components/login'
 import { connect } from 'preact-redux'
 import { authenticate } from '../../actions/login'

@@ -11,28 +11,36 @@
     "lint": "eslint src",
     "test": "jest"
   },
-  "eslintConfig": {
-    "extends": "eslint-config-synacor"
-  },
   "eslintIgnore": [
     "build/*"
   ],
   "devDependencies": {
-    "eslint": "^4.9.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-preact": "^1.1.6",
     "eslint-config-synacor": "^2.0.2",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
     "identity-obj-proxy": "^3.0.0",
     "if-env": "^1.0.0",
     "jest": "^21.2.1",
     "preact-cli": "^2.1.0",
-    "preact-render-spy": "^1.2.1"
+    "preact-render-spy": "^1.2.1",
+    "standard": "^12.0.1"
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "history": "^4.7.2",
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
     "preact-i18n": "^1.2.2",
     "preact-redux": "^2.0.3",
     "preact-router": "^2.5.7",
+    "preact-router-redux": "^4.1.0",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
@@ -65,5 +73,18 @@
       "^create-react-class$": "preact-compat/lib/create-react-class",
       "^react-addons-css-transition-group$": "preact-css-transition-group"
     }
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "test",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect"
+    ]
   }
 }

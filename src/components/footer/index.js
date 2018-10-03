@@ -1,8 +1,6 @@
-import { h } from 'preact'
 import style from './style'
 
 const Footer = () => {
-
   const date = new Date()
 
   return (

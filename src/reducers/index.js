@@ -1,7 +1,5 @@
 import loginReducer from './login'
 
-const reducers = {
+export const reducers = {
   loginReducer
 }
-
-export default reducers

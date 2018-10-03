@@ -1,4 +1,4 @@
-import { REQUEST_AUTH, AUTH_SUCCEEDED, AUTH_FAILED } from '../actions/login'
+import { AUTH_FAILED, AUTH_SUCCEEDED, REQUEST_AUTH } from '../actions/login'
 
 const defaultState = {
   isLogged: false,
@@ -8,21 +8,18 @@ const defaultState = {
 const loginReducer = (state = defaultState, action) => {
   switch (action.type) {
     case REQUEST_AUTH:
-      console.log('action: ', action)
       return {
         isLogged: false,
         fetching: true
       }
 
     case AUTH_FAILED:
-      console.log('action: ', action)
       return {
         isLogged: false,
         fetching: false
       }
 
     case AUTH_SUCCEEDED:
-      console.log('action: ', action)
       return {
         isLogged: true,
         fetching: false,

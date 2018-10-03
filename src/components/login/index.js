@@ -1,4 +1,4 @@
-import { h, Component } from 'preact'
+import { Component } from 'preact'
 import style from './style'
 import { withText } from 'preact-i18n'
 
@@ -35,7 +35,7 @@ class Login extends Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <div class={style.form}>
         <form onSubmit={this.handleSubmit}>
