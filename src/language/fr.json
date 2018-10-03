@@ -14,6 +14,7 @@
   },
   "login": {
     "username": "Nom d'utilisateur",
+    "email": "Email",
     "password": "Mot de passe",
     "submit": "Se connecter"
   }

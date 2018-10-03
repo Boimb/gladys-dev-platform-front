@@ -14,6 +14,7 @@
   },
   "login": {
     "username": "Username",
+    "email": "Email",
     "password": "Password",
     "submit": "Connect"
   }

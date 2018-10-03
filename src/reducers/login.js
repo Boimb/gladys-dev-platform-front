@@ -25,7 +25,8 @@ const loginReducer = (state = defaultState, action) => {
       console.log('action: ', action)
       return {
         isLogged: true,
-        fetching: false
+        fetching: false,
+        ...action.user
       }
 
     default:
