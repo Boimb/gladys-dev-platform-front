@@ -1,13 +1,13 @@
-import style from './style'
+import style from './style';
 
 const Footer = () => {
-  const date = new Date()
+  const date = new Date();
 
   return (
     <footer class={style.footer}>
       <p>{`Gladys Project - ${date.getFullYear()}`}</p>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

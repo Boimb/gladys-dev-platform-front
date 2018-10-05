@@ -1,6 +1,6 @@
-import { Component } from 'preact'
-import style from './style'
-import { withText } from 'preact-i18n'
+import { Component } from 'preact';
+import style from './style';
+import { withText } from 'preact-i18n';
 
 @withText({
   email: 'login.email',
@@ -8,44 +8,52 @@ import { withText } from 'preact-i18n'
   submit: 'login.submit'
 })
 class Login extends Component {
-  constructor () {
-    super()
+  constructor() {
+    super();
     this.state = {
       email: '',
       password: ''
-    }
+    };
   }
 
-  handleFillEmail = (value) => this.setState({
-    email: value
-  })
-  handleFillPassword = (value) => this.setState({
-    password: value
-  })
+  handleFillEmail = value =>
+    this.setState({
+      email: value
+    });
+  handleFillPassword = value =>
+    this.setState({
+      password: value
+    });
 
-  validate = () => this.state.email !== '' && this.state.password !== ''
+  validate = () => this.state.email !== '' && this.state.password !== '';
 
-  handleSubmit = (e) => {
-    e.preventDefault()
+  handleSubmit = e => {
+    e.preventDefault();
     if (this.validate()) {
       this.props.authenticate({
         email: this.state.email,
         password: this.state.password
-      })
+      });
     }
-  }
+  };
 
-  render () {
+  render() {
     return (
       <div class={style.form}>
         <form onSubmit={this.handleSubmit}>
-          <input placeholder={this.props.email} onChange={(e) => this.handleFillEmail(e.target.value)} />
-          <input placeholder={this.props.password} onChange={(e) => this.handleFillPassword(e.target.value)} />
-          <button type='submit'>{this.props.submit}</button>
+          <input
+            placeholder={this.props.email}
+            onChange={e => this.handleFillEmail(e.target.value)}
+          />
+          <input
+            placeholder={this.props.password}
+            onChange={e => this.handleFillPassword(e.target.value)}
+          />
+          <button type="submit">{this.props.submit}</button>
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default Login
+export default Login;

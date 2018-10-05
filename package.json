@@ -5,32 +5,26 @@
   "license": "MIT",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "build": "preact build --no-prerender",
-    "serve": "preact build --no-prerender && preact serve",
+    "build": "preact build",
+    "serve": "preact build && preact serve",
     "dev": "preact watch",
     "lint": "eslint src",
-    "test": "jest"
+    "test": "jest",
+    "eslint": "eslint src tests",
+    "prettier": "prettier --single-quote --write src/**/*.js"
   },
   "eslintIgnore": [
     "build/*"
   ],
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-config-standard-preact": "^1.1.6",
+    "eslint": "^4.9.0",
     "eslint-config-synacor": "^2.0.2",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-react": "^7.11.1",
-    "eslint-plugin-standard": "^4.0.0",
     "identity-obj-proxy": "^3.0.0",
     "if-env": "^1.0.0",
     "jest": "^21.2.1",
     "preact-cli": "^2.1.0",
     "preact-render-spy": "^1.2.1",
-    "standard": "^12.0.1"
+    "prettier": "1.14.3"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -73,18 +67,5 @@
       "^create-react-class$": "preact-compat/lib/create-react-class",
       "^react-addons-css-transition-group$": "preact-css-transition-group"
     }
-  },
-  "standard": {
-    "globals": [
-      "describe",
-      "test",
-      "context",
-      "before",
-      "beforeEach",
-      "after",
-      "afterEach",
-      "it",
-      "expect"
-    ]
   }
 }
