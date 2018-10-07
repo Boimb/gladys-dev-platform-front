@@ -1,10 +1,10 @@
-import style from './style';
+import './style.scss';
 
 const Footer = () => {
   const date = new Date();
 
   return (
-    <footer class={style.footer}>
+    <footer className='footer'>
       <p>{`Gladys Project - ${date.getFullYear()}`}</p>
     </footer>
   );

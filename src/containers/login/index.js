@@ -1,7 +1,55 @@
+import { Component } from 'preact'
 import Login from '../../components/login';
 import { connect } from 'preact-redux';
 import { authenticate } from '../../actions/login';
 import { route } from 'preact-router';
+
+class LoginContainer extends Component {
+  constructor () {
+    super();
+    this.state = {
+      email: '',
+      password: '',
+    };
+  }
+
+  handleFillEmail = value =>
+    this.setState({
+      email: value,
+    });
+  handleFillPassword = value =>
+    this.setState({
+      password: value,
+    });
+
+  validate = () => this.state.email !== '' && this.state.password !== '';
+
+  handleSubmit = e => {
+    e.preventDefault();
+    if (this.validate()) {
+      this.props.authenticate({
+        email: this.state.email,
+        password: this.state.password,
+      });
+    }
+  };
+
+  render() {
+    return (
+      <Login
+        callbacks={{
+          handleFillEmail: this.handleFillEmail,
+          handleFillPassword: this.handleFillPassword,
+          handleSubmit: this.handleSubmit
+        }}
+      />)
+  }
+
+}
+
+
+
+
 
 const mapStateToProps = state => ({});
 
@@ -13,4 +61,4 @@ const mapDispatchToPros = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToPros,
-)(Login);
+)(LoginContainer);
