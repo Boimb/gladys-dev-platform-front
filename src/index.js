@@ -1,4 +1,3 @@
-import './style'
 import Root from './components/root'
 import configureStore from './store'
 
