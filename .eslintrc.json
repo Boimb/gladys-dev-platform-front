@@ -3,6 +3,12 @@
   "rules": {
     "indent": ["error", 2],
     "react/jsx-indent-props": [ "enabled", 2],
-    "brace-style": ["error", "1tbs"]
-  }
+    "brace-style": ["error", "1tbs"],
+    "semi": ["error", "always"],
+  },
+  "settings": {
+    "react": {
+      "pragma": "h"
+    }
+  },
 }

@@ -1,34 +1,44 @@
 import { Component } from 'preact';
-import { Route, Router } from 'preact-router';
-import { browserHistory } from '../history'; // create this with history/createBrowserHistory
-import { syncHistoryWithStore } from 'preact-router-redux';
-import { Provider } from 'preact-redux';
-import configureStore from '../store';
+import { connect } from 'preact-redux';
+// import { Router, Route, Switch, BrowserRouter } from 'react-router-dom';
 import Header from './header';
 import Footer from './footer';
+import { route, Router } from 'preact-router';
 // Code-splitting is automated for routes
 import Home from '../routes/home';
 import Login from '../routes/login';
+import { IntlProvider } from 'preact-i18n';
+import definition from '../language/fr.json'; // TODO import language dynamicaly. e.g from store.
 
-const store = configureStore();
-// Create an enhanced history that syncs navigation events with the store
-const history = syncHistoryWithStore(browserHistory, store);
+class App extends Component {
+  handleRoute = e => {
+    // not logged users are routed to login
+    e.url !== '/login' && !this.props.isLogged && route('/login', true);
+  };
 
-export default class App extends Component {
   render() {
     return (
-      <Provider store={store}>
+      <IntlProvider definition={definition}>
         <div id="app">
           <Header />
-          <div id="main">
-            <Router history={history}>
-              <Route path="/" component={Home} />
-              <Route path="/login" component={Login} />
-            </Router>
-          </div>
+          <Router onChange={this.handleRoute}>
+            <Login path="/login" />
+            <Home path="/" />
+          </Router>
+          {/*Keep react-router imlementation in case rollback*/}
+          {/*<Switch>*/}
+          {/*<Route path="/login" component={Login} />*/}
+          {/*<Route path="/" component={Home} />*/}
+          {/*</Switch>*/}
           <Footer />
         </div>
-      </Provider>
+      </IntlProvider>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  isLogged: state.user.isLogged
+});
+
+export default connect(mapStateToProps)(App);

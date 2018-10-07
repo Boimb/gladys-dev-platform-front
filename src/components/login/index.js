@@ -5,24 +5,24 @@ import { withText } from 'preact-i18n';
 @withText({
   email: 'login.email',
   password: 'login.password',
-  submit: 'login.submit'
+  submit: 'login.submit',
 })
 class Login extends Component {
-  constructor() {
+  constructor () {
     super();
     this.state = {
       email: '',
-      password: ''
+      password: '',
     };
   }
 
   handleFillEmail = value =>
     this.setState({
-      email: value
+      email: value,
     });
   handleFillPassword = value =>
     this.setState({
-      password: value
+      password: value,
     });
 
   validate = () => this.state.email !== '' && this.state.password !== '';
@@ -32,12 +32,12 @@ class Login extends Component {
     if (this.validate()) {
       this.props.authenticate({
         email: this.state.email,
-        password: this.state.password
+        password: this.state.password,
       });
     }
   };
 
-  render() {
+  render () {
     return (
       <div class={style.form}>
         <form onSubmit={this.handleSubmit}>

@@ -1,11 +1,16 @@
-import { AUTH_FAILED, AUTH_SUCCEEDED, REQUEST_AUTH } from '../actions/login';
+// import { AUTH_FAILED, AUTH_SUCCEEDED, REQUEST_AUTH } from '../actions/login';
+import {
+  REQUEST_AUTH,
+  REQUEST_AUTH_SUCCESS,
+  REQUEST_AUTH_FAIL
+} from '../actions/login';
 
 const defaultState = {
   isLogged: false,
   fetching: false
 };
 
-const loginReducer = (state = defaultState, action) => {
+const userReducer = (state = defaultState, action) => {
   switch (action.type) {
     case REQUEST_AUTH:
       return {
@@ -13,17 +18,17 @@ const loginReducer = (state = defaultState, action) => {
         fetching: true
       };
 
-    case AUTH_FAILED:
+    case REQUEST_AUTH_FAIL:
       return {
         isLogged: false,
         fetching: false
       };
 
-    case AUTH_SUCCEEDED:
+    case REQUEST_AUTH_SUCCESS:
       return {
         isLogged: true,
         fetching: false,
-        ...action.user
+        ...action.payload.data
       };
 
     default:
@@ -31,4 +36,4 @@ const loginReducer = (state = defaultState, action) => {
   }
 };
 
-export default loginReducer;
+export default userReducer;

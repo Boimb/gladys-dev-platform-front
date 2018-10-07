@@ -7,7 +7,7 @@
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "build": "preact build",
     "serve": "preact build && preact serve",
-    "dev": "preact watch",
+    "dev": "PORT=8081 preact watch",
     "lint": "eslint src",
     "test": "jest",
     "eslint": "eslint src tests",
@@ -24,7 +24,8 @@
     "jest": "^21.2.1",
     "preact-cli": "^2.1.0",
     "preact-render-spy": "^1.2.1",
-    "prettier": "1.14.3"
+    "prettier": "1.14.3",
+    "redux-devtools": "^3.4.1"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -34,8 +35,8 @@
     "preact-i18n": "^1.2.2",
     "preact-redux": "^2.0.3",
     "preact-router": "^2.5.7",
-    "preact-router-redux": "^4.1.0",
     "redux": "^4.0.0",
+    "redux-axios-middleware": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
   },
