@@ -6,8 +6,9 @@ import { route, Router } from 'preact-router';
 import Nav from '../../shared/components/nav/index';
 import SiteHead from '../../shared/components/header/index';
 // Code-splitting is automated for routes
-import Home from '../../routes/home/index';
-import Login from '../../routes/login/index';
+import Home from '../../routes/home';
+import Login from '../../routes/login';
+import Signup from '../../routes/signup';
 import { IntlProvider } from 'preact-i18n';
 import definition from '../../language/fr.json'; // TODO import language dynamicaly. e.g from store.
 
@@ -31,8 +32,7 @@ class App extends Component {
   };
 
   handleRoute = e => {
-    // not logged users are routed to login
-    e.url !== '/login' && !this.props.isLogged && route('/login', true);
+    // e.url === '/login' && !this.props.isLogged && route('/login', true);
   };
 
   render () {
@@ -50,6 +50,7 @@ class App extends Component {
             <SiteHead toggleNav={this.toggleNav}/>
             <Router onChange={this.handleRoute}>
               <Login path="/login"/>
+              <Signup path="/signup"/>
               <Home path="/"/>
             </Router>
             {/*Keep react-router imlementation in case rollback*/}

@@ -6,7 +6,11 @@
     "module": "Module",
     "script": "Script",
     "sentence": "Phrase",
-    "documentation": "Documentation"
+    "documentation": "Documentation",
+    "languages": {
+      "french": "Français",
+      "english": "English"
+    }
   },
   "header": {
     "forum": "Forum",
@@ -16,6 +20,30 @@
     "username": "Nom d'utilisateur",
     "email": "Email",
     "password": "Mot de passe",
+    "language": "Langue",
     "submit": "Se connecter"
+  },
+  "signup": {
+    "title": "Créez un compte",
+    "subtitle": "Entrez dans la famille des contributeurs au projet Gladys!",
+    "labels": {
+      "name": "Nom d'utilisateur",
+      "email": "Email",
+      "password": "Mot de passe",
+      "language": "Langue",
+      "submit": "S'enregistrer"
+    },
+    "placeholders": {
+      "name": "Nom d'utilisateur",
+      "email": "Un email de confirmation vous sera envoyé",
+      "password": "Min. 8 caractères",
+      "confirmPassword": "Retapez votre mot de passe"
+    },
+    "errors": {
+      "name": "Le nom d'utlisateur est obligatoire",
+      "email": "Email invalide",
+      "password": "Le mot de passe doit être composé au minimum de 8 caractères",
+      "valid-password": "La confirmation n'est pas identique au mot de passe"
+    }
   }
 }

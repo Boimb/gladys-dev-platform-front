@@ -6,7 +6,11 @@
     "module": "Module",
     "script": "Script",
     "sentence": "Sentence",
-    "documentation": "Documentation"
+    "documentation": "Documentation",
+    "languages": {
+      "french": "Français",
+      "english": "English"
+    }
   },
   "header": {
     "forum": "Forum",
@@ -16,6 +20,30 @@
     "username": "Username",
     "email": "Email",
     "password": "Password",
+    "language": "Language",
     "submit": "Connect"
+  },
+  "signup": {
+    "title": "Create an account",
+    "subtitle": "Be a Gladys Project contributor!",
+    "labels": {
+      "name": "Username",
+      "email": "Email",
+      "password": "Password",
+      "language": "Language",
+      "submit": "Register"
+    },
+    "placeholders": {
+      "name": "Your name",
+      "email": "Should be valid. A confirmation email will be sent.",
+      "password": "Min. 8 characters",
+      "confirmPassword": "Type your password again"
+    },
+    "errors": {
+      "name": "Username is mandaory",
+      "email": "Invalid email",
+      "password": "Password should be at least 8 characters long",
+      "valid-password": "Passwords missmatch"
+    }
   }
 }
