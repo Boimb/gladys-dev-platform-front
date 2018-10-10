@@ -1,13 +1,12 @@
 // import { AUTH_FAILED, AUTH_SUCCEEDED, REQUEST_AUTH } from '../actions/login';
 import {
-  REQUEST_AUTH,
-  REQUEST_AUTH_SUCCESS,
-  REQUEST_AUTH_FAIL
+  REQUEST_AUTH, REQUEST_AUTH_FAIL, REQUEST_AUTH_SUCCESS,
 } from '../actions/login';
+import { SIGNUP, SIGNUP_FAIL, SIGNUP_SUCCESS } from '../actions/signup';
 
 const defaultState = {
   isLogged: false,
-  fetching: false
+  fetching: false,
 };
 
 const userReducer = (state = defaultState, action) => {
@@ -15,13 +14,13 @@ const userReducer = (state = defaultState, action) => {
     case REQUEST_AUTH:
       return {
         isLogged: false,
-        fetching: true
+        fetching: true,
       };
 
     case REQUEST_AUTH_FAIL:
       return {
         isLogged: false,
-        fetching: false
+        fetching: false,
       };
 
     case REQUEST_AUTH_SUCCESS:
@@ -29,6 +28,23 @@ const userReducer = (state = defaultState, action) => {
         isLogged: true,
         fetching: false,
         ...action.payload.data
+      };
+
+    case SIGNUP:
+      return {
+        isLogged: false,
+        fetching: true,
+      };
+    case SIGNUP_SUCCESS:
+      return {
+        isLogged: false,
+        fetching: false,
+        ...action.payload.data
+      };
+    case SIGNUP_FAIL:
+      return {
+        isLogged: false,
+        fetching: false,
       };
 
     default:
