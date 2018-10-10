@@ -1,5 +1,7 @@
 import { Component } from 'preact';
 import { connect } from 'preact-redux';
+import { route } from 'preact-router'
+import { signup } from '../../actions/signup';
 import Signup from '../../components/signup';
 
 class SignupContainer extends Component {
@@ -13,6 +15,13 @@ class SignupContainer extends Component {
       language: 'fr',
       errors: {},
     };
+  }
+
+  componentWillReceiveProps (nextProps) {
+    // registration success or already logged, redirect to '/'
+    nextProps.user &&
+    nextProps.user.id &&
+    route('/', true)
   }
 
   handleFillInput = (key, value) => {
@@ -106,7 +115,7 @@ const mapStateToProps = (state) => ({
 });
 
 const dispatchToProps = (dispatch) => ({
-  signup: console.log,
+  signup: (userInfos) => dispatch(signup(userInfos))
 });
 
 export default connect(mapStateToProps, dispatchToProps)(SignupContainer);
