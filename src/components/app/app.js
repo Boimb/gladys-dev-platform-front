@@ -1,10 +1,10 @@
 import { Component } from 'preact';
 import { connect } from 'preact-redux';
 // import { Router, Route, Switch, BrowserRouter } from 'react-router-dom';
-import Footer from '../footer/index';
+import Footer from '../../components/footer';
 import { route, Router } from 'preact-router';
 import Nav from '../../shared/components/nav/index';
-import SiteHead from '../../shared/components/header/index';
+import HeaderContainer from '../../containers/header';
 // Code-splitting is automated for routes
 import Home from '../../routes/home';
 import Login from '../../routes/login';
@@ -47,35 +47,15 @@ class App extends Component {
             <div className="menu-dropshadow"
                  style={{display: (navMini ? 'block' : 'none')}}
                  onClick={this.hideNav}/>
-            <SiteHead toggleNav={this.toggleNav}/>
+            <HeaderContainer toggleNav={this.toggleNav}/>
             <Router onChange={this.handleRoute}>
+              <Home path="/"/>
               <Login path="/login"/>
               <Signup path="/signup"/>
-              <Home path="/"/>
             </Router>
-            {/*Keep react-router imlementation in case rollback*/}
-            {/*<Switch>*/}
-            {/*<Route path="/login" component={Login} />*/}
-            {/*<Route path="/" component={Home} />*/}
-            {/*</Switch>*/}
             <Footer/>
           </div>
         </div>
-
-
-        {/*<div id="app">*/}
-        {/*<Header />*/}
-        {/*<Router onChange={this.handleRoute}>*/}
-        {/*<Login path="/login" />*/}
-        {/*<Home path="/" />*/}
-        {/*</Router>*/}
-        {/*Keep react-router imlementation in case rollback*/}
-        {/*<Switch>*/}
-        {/*<Route path="/login" component={Login} />*/}
-        {/*<Route path="/" component={Home} />*/}
-        {/*</Switch>*/}
-        {/*<Footer/>*/}
-      {/*</div>*/}
       </IntlProvider>
     );
   }

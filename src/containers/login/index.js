@@ -10,6 +10,10 @@ class LoginContainer extends Component {
     this.state = {
       email: '',
       password: '',
+      errors: {
+        email: '',
+        password: ''
+      }
     };
   }
 
@@ -37,6 +41,7 @@ class LoginContainer extends Component {
   render() {
     return (
       <Login
+        errors={this.state.errors}
         callbacks={{
           handleFillEmail: this.handleFillEmail,
           handleFillPassword: this.handleFillPassword,

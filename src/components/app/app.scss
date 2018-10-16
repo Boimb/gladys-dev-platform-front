@@ -1,4 +1,6 @@
 @import '../../shared/variables';
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss'; // import full bootstrap here (as-is)
+
 
 .app-wrapper {
   display: flex;
