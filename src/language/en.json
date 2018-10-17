@@ -14,18 +14,33 @@
   },
   "header": {
     "forum": "Forum",
-    "connection": "Connection"
+    "register": "Register",
+    "login": "Login"
   },
   "login": {
     "username": "Username",
     "email": "Email",
     "password": "Password",
     "language": "Language",
-    "submit": "Connect"
+    "submit": "Connect",
+    "labels": {
+      "email" : "Email",
+      "password": "Password",
+      "Submit": "Login"
+    },
+    "placeholders": {
+      "email": "user@domain.com",
+      "password": "Enter your pass"
+    },
+    "errors": {
+      "email": "Unknown email",
+      "password": "Wrong password"
+    }
   },
   "signup": {
     "title": "Create an account",
     "subtitle": "Be a Gladys Project contributor!",
+    "subtitle": "Access to your personnal developper area",
     "labels": {
       "name": "Username",
       "email": "Email",

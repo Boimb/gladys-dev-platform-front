@@ -14,14 +14,30 @@
   },
   "header": {
     "forum": "Forum",
-    "connection": "Connexion"
+    "register": "S'inscrire",
+    "login": "Connexion"
   },
   "login": {
+    "title": "Connexion",
+    "subtitle": "Accédez à votre espace développeur",
     "username": "Nom d'utilisateur",
     "email": "Email",
     "password": "Mot de passe",
     "language": "Langue",
-    "submit": "Se connecter"
+    "submit": "Se connecter",
+    "labels": {
+      "email" : "Email",
+      "password": "Mot de passe",
+      "submit": "Connexion"
+    },
+    "placeholders": {
+      "email": "utilisateur@domaine.com",
+      "password": "Votre mot de passe"
+    },
+    "errors": {
+      "email": "Email inconnu",
+      "password": "Le mot de passe ne correspond pas à l'email saisi"
+    }
   },
   "signup": {
     "title": "Créez un compte",
