@@ -7,6 +7,8 @@
     "script": "Script",
     "sentence": "Phrase",
     "documentation": "Documentation",
+    "profile": "Profile",
+    "logout": "Déconnexion",
     "languages": {
       "french": "Français",
       "english": "English"
@@ -26,7 +28,7 @@
     "language": "Langue",
     "submit": "Se connecter",
     "labels": {
-      "email" : "Email",
+      "email": "Email",
       "password": "Mot de passe",
       "submit": "Connexion"
     },

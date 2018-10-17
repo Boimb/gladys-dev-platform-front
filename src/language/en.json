@@ -7,6 +7,8 @@
     "script": "Script",
     "sentence": "Sentence",
     "documentation": "Documentation",
+    "profile": "Profile",
+    "logout": "Logout",
     "languages": {
       "french": "Français",
       "english": "English"
