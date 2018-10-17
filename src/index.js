@@ -1,8 +1,12 @@
-import Root from './components/root'
-import configureStore from './store'
+import Root from './components/root';
+import configureStore from './store';
+import { loadState, saveState } from './localStorage';
 
-const store = configureStore();
+const persistedStore = loadState();
+const store = configureStore(persistedStore);
+store.subscribe(() => {
+  saveState(store.getState());
+});
+const Application = () => (<Root store={store}/>);
 
-const Application = () => (<Root store={store} />)
-
-export default Application
+export default Application;
