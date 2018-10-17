@@ -1,7 +1,7 @@
 import { Component } from 'preact';
 import { connect } from 'preact-redux';
 import { route } from 'preact-router'
-import { signup } from '../../actions/signup';
+import { signup } from '../../actions/user';
 import Signup from '../../components/signup';
 
 class SignupContainer extends Component {

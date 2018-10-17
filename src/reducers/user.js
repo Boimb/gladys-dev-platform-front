@@ -1,10 +1,13 @@
 // import { AUTH_FAILED, AUTH_SUCCEEDED, REQUEST_AUTH } from '../actions/login';
 import {
+  LOGOUT,
   REQUEST_AUTH,
   REQUEST_AUTH_FAIL,
-  REQUEST_AUTH_SUCCESS
-} from '../actions/login';
-import { SIGNUP, SIGNUP_FAIL, SIGNUP_SUCCESS } from '../actions/signup';
+  REQUEST_AUTH_SUCCESS,
+  SIGNUP,
+  SIGNUP_FAIL,
+  SIGNUP_SUCCESS
+} from '../actions/user';
 
 const defaultState = {
   isLogged: false,
@@ -13,6 +16,13 @@ const defaultState = {
 
 const userReducer = (state = defaultState, action) => {
   switch (action.type) {
+    case LOGOUT: {
+      return {
+        isLogged: false,
+        fetching: false
+      };
+    }
+
     case REQUEST_AUTH:
       return {
         isLogged: false,

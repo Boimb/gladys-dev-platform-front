@@ -1,7 +1,7 @@
 import { Component } from 'preact'
 import Login from '../../components/login';
 import { connect } from 'preact-redux';
-import { authenticate } from '../../actions/login';
+import { authenticate } from '../../actions/user';
 import { route } from 'preact-router';
 
 class LoginContainer extends Component {
