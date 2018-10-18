@@ -6,7 +6,10 @@ import {
   REQUEST_AUTH_SUCCESS,
   SIGNUP,
   SIGNUP_FAIL,
-  SIGNUP_SUCCESS
+  SIGNUP_SUCCESS,
+  UPDATE_PROFILE,
+  UPDATE_PROFILE_FAIL,
+  UPDATE_PROFILE_SUCCESS
 } from '../actions/user';
 
 const defaultState = {
@@ -28,13 +31,11 @@ const userReducer = (state = defaultState, action) => {
         isLogged: false,
         fetching: true
       };
-
     case REQUEST_AUTH_FAIL:
       return {
         isLogged: false,
         fetching: false
       };
-
     case REQUEST_AUTH_SUCCESS:
       return {
         isLogged: true,
@@ -57,6 +58,23 @@ const userReducer = (state = defaultState, action) => {
       return {
         isLogged: false,
         fetching: false
+      };
+
+    case UPDATE_PROFILE:
+      return {
+        isFetching: true,
+        isLogged: true
+      };
+    case UPDATE_PROFILE_FAIL:
+      return {
+        ...state,
+        isFetching: false,
+        isLogged: true
+      };
+    case UPDATE_PROFILE_SUCCESS:
+      return {
+        ...action.payload.data,
+        isFetching: false
       };
 
     default:
