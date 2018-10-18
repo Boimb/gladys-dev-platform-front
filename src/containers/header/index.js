@@ -1,5 +1,4 @@
 import { connect } from 'preact-redux';
-import { compose } from 'redux';
 import { route } from 'preact-router';
 import { logout } from '../../actions/user';
 import Header from '../../components/header';
@@ -21,5 +20,4 @@ const mergeProps = (propsFromState, propsFromDispatch, ownProps) => ({
   },
 });
 
-export default compose(
-  connect(mapStateToProps, mapDispatchToProps, mergeProps))(Header);
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Header);
