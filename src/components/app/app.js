@@ -9,6 +9,7 @@ import HeaderContainer from '../../containers/header';
 import Home from '../../routes/home';
 import Login from '../../routes/login';
 import Signup from '../../routes/signup';
+import Profile from '../../routes/profile';
 import { IntlProvider } from 'preact-i18n';
 import definition from '../../language/fr.json'; // TODO import language dynamicaly. e.g from store.
 
@@ -52,6 +53,7 @@ class App extends Component {
               <Home path="/"/>
               <Login path="/login"/>
               <Signup path="/signup"/>
+              <Profile path="/profile"/>
             </Router>
             <Footer/>
           </div>

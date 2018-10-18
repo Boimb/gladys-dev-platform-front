@@ -63,5 +63,9 @@
       "password": "Le mot de passe doit être composé au minimum de 8 caractères",
       "valid-password": "La confirmation n'est pas identique au mot de passe"
     }
+  },
+  "profile": {
+    "title": "Profil utilisateur",
+    "subtitle": "Ajustez vos paramètres"
   }
 }

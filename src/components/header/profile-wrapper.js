@@ -36,10 +36,10 @@ const ProfileMenu = props => (<UncontrolledDropdown>
   <DropdownMenu right style={{minWidth: '12rem'}}>
     <DropdownItem header>{`Hey! ${props.user.name}`}</DropdownItem>
     <DropdownItem divider/>
-    <DropdownItem><Info size="16"/> <a href="#na"><Text id={'generics.profile'}/></a></DropdownItem>
-    <DropdownItem><IconMail size="16"/>&emsp;<a href="#na">Inbox</a></DropdownItem>
-    <DropdownItem><IconSecurity size="16"/>&emsp;<a href="#na">Security</a></DropdownItem>
-    <DropdownItem><IconHelp size="16"/>&emsp;<a href="#na">Help</a></DropdownItem>
+    <DropdownItem onClick={() => route('/profile')}><Info color='black' size="16"/><Text id={'generics.profile'}/></DropdownItem>
+    <DropdownItem><IconMail color='black' size="16"/>&emsp;<a href="#na">Inbox</a></DropdownItem>
+    <DropdownItem><IconSecurity color='black' size="16"/>&emsp;<a href="#na">Security</a></DropdownItem>
+    <DropdownItem><IconHelp color='black' size="16"/>&emsp;<a href="#na">Help</a></DropdownItem>
     <div className="text-right ml-3 mr-3 mt-2">
       <Button block color="success" size="sm" onClick={() => {
         console.log('clicked')

@@ -62,5 +62,9 @@
       "password": "Password should be at least 8 characters long",
       "valid-password": "Passwords missmatch"
     }
+  },
+  "profile": {
+    "title": "User Profile",
+    "subtitle": "Adjust your parameters"
   }
 }

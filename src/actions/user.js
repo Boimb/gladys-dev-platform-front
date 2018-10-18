@@ -51,11 +51,10 @@ export const logout = () => ({
   type: LOGOUT
 });
 
-
 export const UPDATE_PROFILE = 'UDPATE_PROFILE';
 export const UPDATE_PROFILE_SUCCESS = 'UPDATE_SUCCESS';
 export const UPDATE_PROFILE_FAIL = 'UPDATE_FAIL';
-export const updateProfile = (user) => ({
+export const updateProfile = user => ({
   type: UPDATE_PROFILE,
   payload: {
     request: {
@@ -66,4 +65,4 @@ export const updateProfile = (user) => ({
       }
     }
   }
-})
+});
