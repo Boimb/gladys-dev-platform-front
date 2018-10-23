@@ -1,3 +1,5 @@
+// import { defaultState } from './reducers/user';
+
 export const loadState = () => {
   try {
     const serializedState = localStorage.getItem('gladys-dev-platform');
@@ -15,7 +17,7 @@ export const loadState = () => {
 export const saveState = (state) => {
   try {
     const serializedState = JSON.stringify(state);
-    localStorage.setItem('gladys-dev-platform', serializedState);
+    localStorage.setItem('gladys-developpers', serializedState);
   } catch (err) {
     console.warn('saveState err', err);
     // TODO maybe log this somewhere
