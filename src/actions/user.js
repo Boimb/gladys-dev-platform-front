@@ -39,9 +39,7 @@ export const authenticate = credentials => ({
     request: {
       method: 'POST',
       url: '/login',
-      data: {
-        ...credentials
-      }
+      data: credentials
     }
   }
 });
@@ -51,18 +49,18 @@ export const logout = () => ({
   type: LOGOUT
 });
 
-export const UPDATE_PROFILE = 'UDPATE_PROFILE';
-export const UPDATE_PROFILE_SUCCESS = 'UPDATE_SUCCESS';
-export const UPDATE_PROFILE_FAIL = 'UPDATE_FAIL';
-export const updateProfile = user => ({
-  type: UPDATE_PROFILE,
-  payload: {
-    request: {
-      method: 'PATCH',
-      url: '/user',
-      data: {
-        ...user
+export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+export const UPDATE_PROFILE_SUCCESS = 'UPDATE_PROFILE_SUCCESS';
+export const UPDATE_PROFILE_FAIL = 'UPDATE_PROFILE_FAIL';
+export const updateProfile = user => {
+  return {
+    type: UPDATE_PROFILE,
+    payload: {
+      request: {
+        method: 'PATCH',
+        url: '/user',
+        data: user
       }
     }
   }
-});
+};
