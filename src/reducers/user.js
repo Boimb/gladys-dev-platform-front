@@ -12,12 +12,13 @@ import {
   UPDATE_PROFILE_SUCCESS
 } from '../actions/user';
 
-const defaultState = {
+export const defaultState = {
   isLogged: false,
   fetching: false
 };
 
 const userReducer = (state = defaultState, action) => {
+  console.log('action', action)
   switch (action.type) {
     case LOGOUT: {
       return {
@@ -62,6 +63,7 @@ const userReducer = (state = defaultState, action) => {
 
     case UPDATE_PROFILE:
       return {
+        ...state,
         isFetching: true,
         isLogged: true
       };
@@ -69,10 +71,11 @@ const userReducer = (state = defaultState, action) => {
       return {
         ...state,
         isFetching: false,
-        isLogged: true
       };
     case UPDATE_PROFILE_SUCCESS:
+      console.log(UPDATE_PROFILE_SUCCESS, action)
       return {
+        ...state,
         ...action.payload.data,
         isFetching: false
       };
