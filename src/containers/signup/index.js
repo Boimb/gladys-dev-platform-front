@@ -32,7 +32,7 @@ class SignupContainer extends Component {
 
   handleSubmit = () => {
     if (this.isFormValid())
-      this.props.signup(this.state);
+      this.props.submit(this.state);
   };
 
   isNullOrEmpty = (value) => !value || value === '';
@@ -68,29 +68,6 @@ class SignupContainer extends Component {
   };
 
   render () {
-    const form = {
-      name: {
-        value: this.state.name,
-        error: null,
-      },
-      email: {
-        value: this.state.email,
-        error: null,
-      },
-      password: {
-        value: this.state.password,
-        error: null,
-      },
-      validPassword: {
-        value: this.state.validPassword,
-        error: null,
-      },
-      language: {
-        value: this.state.language,
-        error: null,
-      },
-    };
-
     return (
       <Signup
         {...this.state}
@@ -115,7 +92,9 @@ const mapStateToProps = (state) => ({
 });
 
 const dispatchToProps = (dispatch) => ({
-  signup: (userInfos) => dispatch(signup(userInfos))
+  submit: (user) => dispatch(signup(user))
 });
+
+export const UserFormContainer = SignupContainer;
 
 export default connect(mapStateToProps, dispatchToProps)(SignupContainer);

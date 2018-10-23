@@ -65,6 +65,23 @@
   },
   "profile": {
     "title": "User Profile",
-    "subtitle": "Adjust your parameters"
+    "subtitle": "Adjust your parameters",
+    "labels": {
+      "name": "Username",
+      "email": "Email",
+      "password": "Password",
+      "language": "Language",
+      "submit": "Register"
+    },
+    "placeholders": {
+      "password": "Min. 8 characters",
+      "confirmPassword": "Type your password again"
+    },
+    "errors": {
+      "name": "Username is mandaory",
+      "email": "Invalid email",
+      "password": "Password should be at least 8 characters long",
+      "valid-password": "Passwords missmatch"
+    }
   }
 }
