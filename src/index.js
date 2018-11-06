@@ -1,8 +1,6 @@
-import Root from './components/root'
-import configureStore from './store'
+import Root from './components/root';
+import store from './store'
 
-const store = configureStore();
+const Application = () => (<Root store={store}/>);
 
-const Application = () => (<Root store={store} />)
-
-export default Application
+export default Application;

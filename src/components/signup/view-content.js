@@ -18,7 +18,7 @@ const ViewContent = (props) => {
                       style={{color: '#212121'}}><Text
                 id={'signup.title'}/></strong>
             </header>
-            <Form onSubmit={e => {
+            <Form id='form-signup' onSubmit={e => {
               e.preventDefault();
               props.handleSubmit();
             }}>

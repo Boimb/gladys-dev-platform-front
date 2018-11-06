@@ -1,8 +1,11 @@
-import { Component } from 'preact'
+import { Component } from 'preact';
 import Login from '../../components/login';
 import { connect } from 'preact-redux';
-import { authenticate } from '../../actions/login';
+import { compose } from 'redux';
+import { withText } from 'preact-i18n';
 import { route } from 'preact-router';
+import { authenticate } from '../../actions/user';
+import { addNotification } from '../../actions/notification';
 
 class LoginContainer extends Component {
   constructor () {
@@ -12,9 +15,19 @@ class LoginContainer extends Component {
       password: '',
       errors: {
         email: '',
-        password: ''
-      }
+        password: '',
+      },
     };
+  }
+
+  componentWillMount () {
+    // No need to be here if already logged ;)
+    this.props.user.isLogged && route('/');
+  }
+
+  componentWillReceiveProps (nextProps) {
+    // No need to be here if already logged ;)
+    nextProps.user.isLogged && route('/');
   }
 
   handleFillEmail = value =>
@@ -38,32 +51,38 @@ class LoginContainer extends Component {
     }
   };
 
-  render() {
+  render () {
     return (
       <Login
         errors={this.state.errors}
         callbacks={{
           handleFillEmail: this.handleFillEmail,
           handleFillPassword: this.handleFillPassword,
-          handleSubmit: this.handleSubmit
+          handleSubmit: this.handleSubmit,
         }}
-      />)
+      />);
   }
-
 }
 
-
-
-
-
-const mapStateToProps = state => ({});
-
-const mapDispatchToPros = dispatch => ({
-  authenticate: credentials => dispatch(authenticate(credentials))
-  .then(() => route('/', true)),
+const mapStateToProps = state => ({
+  user: state.user,
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToPros,
-)(LoginContainer);
+const mapDispatchToPros = (dispatch, ownProps) => ({
+  authenticate: credentials => dispatch(authenticate(credentials))
+    .then((res) => dispatch(addNotification({
+      message: `${ownProps.welcomeMessage} ${res.payload.data.name}`,
+      title: `${ownProps.welcomeMessage}`,
+    })))
+    .then(() => route('/', true)),
+});
+
+export default compose(
+  withText({
+    welcomeMessage: 'login.welcome',
+  }),
+  connect(
+    mapStateToProps,
+    mapDispatchToPros,
+  ))
+(LoginContainer);

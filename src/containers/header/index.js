@@ -1,22 +1,23 @@
-import { Component } from 'preact'
 import { connect } from 'preact-redux';
-import { compose } from 'redux'
 import { route } from 'preact-router';
-import Header from '../../components/header'
+import { logout } from '../../actions/user';
+import Header from '../../components/header';
 
 const mapStateToProps = state => ({
-  user: state.user
-})
+  user: state.user,
+});
 
 const mapDispatchToProps = dispatch => ({
-
-})
+  logout: () => dispatch(logout()),
+});
 
 const mergeProps = (propsFromState, propsFromDispatch, ownProps) => ({
   ...ownProps,
-  user: propsFromState.user
-})
+  user: propsFromState.user,
+  logout: () => {
+    propsFromDispatch.logout();
+    route('/');
+  },
+});
 
-
-
-export default compose(connect(mapStateToProps, mapDispatchToProps, mergeProps))(Header)
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Header);

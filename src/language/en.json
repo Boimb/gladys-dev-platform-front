@@ -7,6 +7,8 @@
     "script": "Script",
     "sentence": "Sentence",
     "documentation": "Documentation",
+    "profile": "Profile",
+    "logout": "Logout",
     "languages": {
       "french": "Français",
       "english": "English"
@@ -18,6 +20,8 @@
     "login": "Login"
   },
   "login": {
+    "title": "Connection",
+    "subtitle": "Access to your developper account",
     "username": "Username",
     "email": "Email",
     "password": "Password",
@@ -28,6 +32,7 @@
       "password": "Password",
       "Submit": "Login"
     },
+    "welcome": "Welcome",
     "placeholders": {
       "email": "user@domain.com",
       "password": "Enter your pass"
@@ -40,7 +45,7 @@
   "signup": {
     "title": "Create an account",
     "subtitle": "Be a Gladys Project contributor!",
-    "subtitle": "Access to your personnal developper area",
+    "success": "Votre profil a été enregistré. Un lien de validation vous a été envoyé. Consultez vos emails.",
     "labels": {
       "name": "Username",
       "email": "Email",
@@ -51,6 +56,27 @@
     "placeholders": {
       "name": "Your name",
       "email": "Should be valid. A confirmation email will be sent.",
+      "password": "Min. 8 characters",
+      "confirmPassword": "Type your password again"
+    },
+    "errors": {
+      "name": "Username is mandaory",
+      "email": "Invalid email",
+      "password": "Password should be at least 8 characters long",
+      "valid-password": "Passwords missmatch"
+    }
+  },
+  "profile": {
+    "title": "User Profile",
+    "subtitle": "Adjust your parameters",
+    "labels": {
+      "name": "Username",
+      "email": "Email",
+      "password": "Password",
+      "language": "Language",
+      "submit": "Register"
+    },
+    "placeholders": {
       "password": "Min. 8 characters",
       "confirmPassword": "Type your password again"
     },

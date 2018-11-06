@@ -51,4 +51,19 @@
 
     }
   }
+
+  .profile-menu {
+    button{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      svg {
+        margin-right: 1em;
+      }
+      span {
+        line-height: 1.3em;
+      }
+    }
+  }
 }
