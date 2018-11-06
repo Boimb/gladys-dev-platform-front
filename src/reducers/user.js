@@ -18,7 +18,6 @@ export const defaultState = {
 };
 
 const userReducer = (state = defaultState, action) => {
-  console.log('action', action)
   switch (action.type) {
     case LOGOUT: {
       return {
@@ -73,7 +72,6 @@ const userReducer = (state = defaultState, action) => {
         isFetching: false,
       };
     case UPDATE_PROFILE_SUCCESS:
-      console.log(UPDATE_PROFILE_SUCCESS, action)
       return {
         ...state,
         ...action.payload.data,

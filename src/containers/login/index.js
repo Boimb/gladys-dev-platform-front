@@ -1,8 +1,11 @@
 import { Component } from 'preact';
 import Login from '../../components/login';
 import { connect } from 'preact-redux';
+import { compose } from 'redux';
+import { withText } from 'preact-i18n';
+import { route } from 'preact-router';
 import { authenticate } from '../../actions/user';
-import { route } from 'preact-router'
+import { addNotification } from '../../actions/notification';
 
 class LoginContainer extends Component {
   constructor () {
@@ -19,12 +22,12 @@ class LoginContainer extends Component {
 
   componentWillMount () {
     // No need to be here if already logged ;)
-    this.props.user.isLogged && route('/')
+    this.props.user.isLogged && route('/');
   }
 
   componentWillReceiveProps (nextProps) {
     // No need to be here if already logged ;)
-    nextProps.user.isLogged && route('/')
+    nextProps.user.isLogged && route('/');
   }
 
   handleFillEmail = value =>
@@ -65,11 +68,21 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
-const mapDispatchToPros = dispatch => ({
-  authenticate: credentials => dispatch(authenticate(credentials)),
+const mapDispatchToPros = (dispatch, ownProps) => ({
+  authenticate: credentials => dispatch(authenticate(credentials))
+    .then((res) => dispatch(addNotification({
+      message: `${ownProps.welcomeMessage} ${res.payload.data.name}`,
+      title: `${ownProps.welcomeMessage}`,
+    })))
+    .then(() => route('/', true)),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToPros,
-)(LoginContainer);
+export default compose(
+  withText({
+    welcomeMessage: 'login.welcome',
+  }),
+  connect(
+    mapStateToProps,
+    mapDispatchToPros,
+  ))
+(LoginContainer);

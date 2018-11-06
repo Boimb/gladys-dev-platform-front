@@ -27,6 +27,7 @@
     "password": "Mot de passe",
     "language": "Langue",
     "submit": "Se connecter",
+    "welcome": "Bienvenue",
     "labels": {
       "email": "Email",
       "password": "Mot de passe",
@@ -44,6 +45,7 @@
   "signup": {
     "title": "Créez un compte",
     "subtitle": "Entrez dans la famille des contributeurs au projet Gladys!",
+    "success": "Votre profil a été enregistré. Un lien de validation vous a été envoyé. Consultez vos emails.",
     "labels": {
       "name": "Nom d'utilisateur",
       "email": "Email",

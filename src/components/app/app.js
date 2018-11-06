@@ -12,6 +12,7 @@ import Signup from '../../routes/signup';
 import Profile from '../../routes/profile';
 import { IntlProvider } from 'preact-i18n';
 import definition from '../../language/fr.json'; // TODO import language dynamicaly. e.g from store.
+import NotificationSystem from'react-notification-system';
 
 import './app.scss';
 
@@ -19,7 +20,28 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = {navMini: false};
+    this.notificationSystem = null;
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.notifications.length > this.props.notifications.length) {
+      const notif = nextProps.notifications[nextProps.notifications.length - 1];
+      this.notificationSystem.addNotification({
+        message: notif.message,
+        level: notif.level || 'success',
+        position: notif.position || 'tr',
+        autoDismiss: notif.autoDismiss || 4,
+        uid: notif.uid
+      });
+    }
+  }
+
+  setNotificationRef = el => {
+    if (el) {
+      this.notificationSystem = el;
+    }
+  }
+
 
   toggleNav = (e) => {
     e.preventDefault();
@@ -57,6 +79,7 @@ class App extends Component {
             </Router>
             <Footer/>
           </div>
+          <NotificationSystem ref={this.setNotificationRef} />
         </div>
       </IntlProvider>
     );
@@ -64,7 +87,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLogged: state.user.isLogged,
+  isLogged: !!state.user.isLogged,
+  notifications: state.notification.notifications || {}
 });
 
 export default connect(mapStateToProps)(App);

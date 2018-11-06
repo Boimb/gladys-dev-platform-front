@@ -2,7 +2,7 @@
 
 export const loadState = () => {
   try {
-    const serializedState = localStorage.getItem('gladys-dev-platform');
+    const serializedState = localStorage.getItem('gladys-developpers');
     if (serializedState === null) {
       return undefined;
     }

@@ -1,8 +1,11 @@
 import { Component } from 'preact';
+import { compose } from 'redux';
 import { connect } from 'preact-redux';
-import { route } from 'preact-router'
+import { withText } from 'preact-i18n';
+import { route } from 'preact-router';
 import { signup } from '../../actions/user';
 import Signup from '../../components/signup';
+import { addNotification } from '../../actions/notification';
 
 class SignupContainer extends Component {
   constructor () {
@@ -21,7 +24,7 @@ class SignupContainer extends Component {
     // registration success or already logged, redirect to '/'
     nextProps.user &&
     nextProps.user.id &&
-    route('/', true)
+    route('/', true);
   }
 
   handleFillInput = (key, value) => {
@@ -32,7 +35,7 @@ class SignupContainer extends Component {
 
   handleSubmit = () => {
     if (this.isFormValid())
-      this.props.submit(this.state);
+      this.props.signup(this.state);
   };
 
   isNullOrEmpty = (value) => !value || value === '';
@@ -91,10 +94,19 @@ const mapStateToProps = (state) => ({
   user: state.user,
 });
 
-const dispatchToProps = (dispatch) => ({
-  submit: (user) => dispatch(signup(user))
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  signup: (userInfos) => dispatch(signup(userInfos))
+    .then((res) => {
+      return dispatch(addNotification({
+        message: ownProps.success,
+        title: 'Success'}))})
 });
 
 export const UserFormContainer = SignupContainer;
 
-export default connect(mapStateToProps, dispatchToProps)(SignupContainer);
+export default compose(
+  withText({
+    success: 'signup.success',
+  }),
+  connect(mapStateToProps, mapDispatchToProps),
+)(SignupContainer);
