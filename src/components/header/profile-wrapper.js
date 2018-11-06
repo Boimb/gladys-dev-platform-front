@@ -33,7 +33,6 @@ const ProfileMenu = props => (<div className='profile-menu'>
       </DropdownItem>
       <div className="text-right ml-3 mr-3 mt-2 signout">
         <Button block color="success" size="sm" onClick={() => {
-          console.log('clicked');
           props.logout();
         }}>
           <LogOut size="15"/>
